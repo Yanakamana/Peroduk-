@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { 
+import {
   getFirestore,
   collection,
   addDoc,
@@ -10,8 +10,7 @@ import {
   query,
   orderBy,
   updateDoc
-  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBm9HdJ92vSLrKRclI6Z2J4bmvlFgR4AuU",
@@ -23,23 +22,23 @@ const firebaseConfig = {
   measurementId: "G-MF48P7VG5P"
 };
 
+// Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarProduk() {
-  const refDokumen = collection(db, "Produk");
-  const kuery = query(refDokumen, orderBy("nama"));
-  const cuplikanKuery = await getDocs(kuery);
-  
+  const refDokumen = collection(db, "produk");
+  const kueri = query(refDokumen, orderBy("nama"));
+  const cuplikanKueri = await getDocs(kueri);
+
   let hasil = [];
-  cuplikanKuery.forEach((dok) => {
-    hasil.push({ 
+  cuplikanKueri.forEach((dok) => {
+    hasil.push({
       id: dok.id,
       nama: dok.data().nama,
       harga: dok.data().harga,
       stok: dok.data().stok,
     });
-    
   });
   
   return hasil;
