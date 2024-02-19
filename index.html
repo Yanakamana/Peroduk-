@@ -13,13 +13,13 @@
 </head>
 
 <body>
-  <h1>Daptar peroduk</h1>
+  <h1>Daptar Peroduk</h1>
   
-  <table class="table" id="daftar-produk">
+  <table class="table" id="daftar-Produk">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nama peroduk</th>
+      <th scope="col">Nama Peroduk</th>
       <th scope="col">Harga</th>
       <th scope="col">Setok</th>
     </tr>
@@ -30,11 +30,11 @@
   </tbody>
 </table>
 <script type="module">
-  import { ambilDaftarproduk } from './main.js';
+  import { ambilDaftarProduk } from './main.js';
   
   $(document).ready(async function(){
     let elemenDaftar = $("#daftar-produk > tbody");
-    let daptarproduk = await ambilDaftarproduk();
+    let daptarProduk = await ambilDaftarProduk();
     
     daftarProduk.forEach((data ) => {
       elemenDaftar.append(
