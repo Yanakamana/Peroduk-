@@ -34,6 +34,20 @@
   </form>
  
  <a href="index.html">lihat daftar peroduk</a>
+ <script type="module">
+   import { menambahProduk } from'./main.js';
+   
+   let tombolTambah = document.getElementById('tombol-Tambah');
+   let elemenNamaProduk = Document.getElementById('imput-nama');
+   let elemenharga = document.getElementById('input-harga');
+   let elemenStok = document.getElementById('input-stok');
+   
+   tombolTambah.addEventListener('click',async function(e){
+     e.preventDefault();
+     await tambahproduk(elemenNamaProduk.value,elemenharga.value, elemenStok);
+     window.location.href = 'index.html';
+   });
+ </script>
 </body>
 
 </html>
